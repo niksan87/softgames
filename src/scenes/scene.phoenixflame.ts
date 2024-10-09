@@ -32,7 +32,7 @@ export class PhoenixFlameScene extends View {
         this.addChild( this.title );
         parent.addChild( this );
         
-        const texture = PIXI.Texture.from( '../../assets/wood.png' );
+        const texture = PIXI.Texture.from( './assets/wood.png' );
         
         this.loadFireTexture().then( () => {
 
@@ -71,7 +71,7 @@ export class PhoenixFlameScene extends View {
 
     private async loadFireTexture(): Promise<void> {
 
-        const texture = PIXI.Texture.from( '../../assets/firetexture.png' );
+        const texture = PIXI.Texture.from( './assets/firetexture.png' );
         const frameWidth = 128; 
         const frameHeight = 128; 
         const cols = 8; 
