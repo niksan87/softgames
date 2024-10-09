@@ -24,9 +24,9 @@ export default {
             output: {
                 compact: false,
                 minifyInternalExports: false,
-                entryFileNames: 'assets/[name].js', // This sets the output file name pattern without hash
-                chunkFileNames: 'assets/[name].js', // For chunk files without hash
-                assetFileNames: 'assets/[name][extname]' // For asset files without hash
+                entryFileNames: '[name].js', // This sets the output file name pattern without hash
+                chunkFileNames: '[name].js', // For chunk files without hash
+                assetFileNames: '[name][extname]' // For asset files without hash
             }
         },
     },
