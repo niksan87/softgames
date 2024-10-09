@@ -4,6 +4,7 @@ import { SafeArea } from '../app/ts/app.types';
 import gsap from 'gsap';
 import { randomBetween } from '../utils/utils.randomBetween';
 import { randomHex } from '../utils/utils.randomHex';
+import { repeatAction } from '../utils/utils.interval';
 
 export class MagicWordsScene extends View {
 
@@ -19,7 +20,7 @@ export class MagicWordsScene extends View {
 
         this.safearea = safearea;
 
-        this.title = new PIXI.Text( 'Magic Words - loading', { fill: 'white', fontWeight: 'bold', fontVariant: 'small-caps' } );
+        this.title = new PIXI.Text( 'Magic Words - loading', { fill: 'darkcyan', fontWeight: 'bold', fontVariant: 'small-caps' } );
         this.title.anchor.set( 0.5 );
         this.addChild( this.title );
 
@@ -108,12 +109,22 @@ export class MagicWordsScene extends View {
                 randomBetween( safearea.x + image.width / 2, safearea.x + safearea.width - image.width / 2 ),
                 randomBetween( safearea.y + image.height / 2, safearea.y + safearea.height - image.height / 2 )
             );
-            
+
             this.wordsContainer.addChild( image, text );
-        
+
+            gsap.to( image, { pixi: {
+                x: randomBetween( safearea.x + image.width / 2, safearea.x + safearea.width - image.width / 2 ),
+                y: randomBetween( safearea.y + image.height / 2, safearea.y + safearea.height - image.height / 2 )
+            } } );
+
+            gsap.to( text, { pixi: {
+                x: randomBetween( safearea.x + text.width / 2, safearea.x + safearea.width - text.width / 2 ),
+                y: randomBetween( safearea.y + text.height / 2, safearea.y + safearea.height - text.height / 2 )
+            } } );
+
         };
 
-        gsap.to( {}, { repeat: -1, repeatDelay: 2, onRepeat: updateTextAndImages } );
+        repeatAction( updateTextAndImages, 2 );
     
     }
 

@@ -27,7 +27,7 @@ export class PhoenixFlameScene extends View {
             rotation: true,
             alpha: true,
         } );
-        this.title = new PIXI.Text( 'Phoenix Flame', { fill: 'white', fontWeight: 'bold', fontVariant: 'small-caps' } );
+        this.title = new PIXI.Text( 'Phoenix Flame', { fill: 'darkcyan', fontWeight: 'bold', fontVariant: 'small-caps' } );
         this.title.anchor.set( 0.5 );
         this.addChild( this.title );
         parent.addChild( this );
@@ -58,12 +58,12 @@ export class PhoenixFlameScene extends View {
 
         this.particleContainer.scale.set( safearea.width * 0.00125 );
 
-        this.wood.position.set( 
+        this.wood?.position.set( 
             this.particleContainer.x,
             this.particleContainer.y * 0.975
         );
 
-        this.wood.scale.set( safearea.width * 0.00025 );
+        this.wood?.scale.set( safearea.width * 0.00025 );
         this.title.style.fontSize = Math.round( safearea.width / 30 );
         this.title.position.set( safearea.x + safearea.width / 2, safearea.y + safearea.height * 0.1 );
     

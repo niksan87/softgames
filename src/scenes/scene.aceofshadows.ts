@@ -40,7 +40,7 @@ export class AceOfShadowsScene extends View {
     public update( safearea: SafeArea ) {
 
         this.title.style.fontSize = Math.round( safearea.width / 30 );
-        this.title.position.set( safearea.x + safearea.width / 2, safearea.y + safearea.height * 0.33 );
+        this.title.position.set( safearea.x + safearea.width / 2, safearea.y + safearea.height * 0.1 );
 
         this.cards.forEach( ( card, i ) => {
 
@@ -94,14 +94,14 @@ export class AceOfShadowsScene extends View {
             if ( topCard ) {
 
                 let cardUpdated = false; 
-                const time = .2;
+                const time = 2;
 
                 await gsap.to( topCard.position, {
                     x: Math.round( safearea.x + safearea.width * 0.66 ),
                     y: Math.round( safearea.y + safearea.height * 0.5 + this.cards.length - i ),
                     duration: time,
                     delay: time * 0.5, // 1,
-                    ease: 'none',
+                    ease: 'power2.inOut',
                     onUpdate: function() {
     
                         if ( !cardUpdated ) {

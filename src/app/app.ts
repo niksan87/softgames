@@ -48,11 +48,13 @@ class App {
 
         if( isDevelopment() ) {
 
-            this.updateDebugSafearea();
             this.initDevTools();
-            this.initFpsCounter();
         
         }
+        
+        this.initFpsCounter();
+
+        this.updateVisibleSafearea();
 
         this.changeScene( InitScene );
     
@@ -96,7 +98,7 @@ class App {
 
             this.renderer.resize( width, height );
             this.updateSafearea( this.safearea.ratio );
-            this.updateDebugSafearea();
+            this.updateVisibleSafearea();
             this.activeScene.update( this.safearea );
 
         }, 16.67 );
@@ -143,7 +145,7 @@ class App {
     
     }
 
-    private updateDebugSafearea() {
+    private updateVisibleSafearea() {
 
         const exists = !!this.safearea.debug;
 
